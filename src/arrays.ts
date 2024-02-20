@@ -60,7 +60,19 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    return messages
+        .map((message: string): string => {
+            // first we are handling if the string is ending in "!
+            if (message.charAt(message.length - 1) === "!") {
+                return message.toUpperCase();
+            }
+            return message;
+        })
+        .filter(
+            // now filter if it ends in "?"
+            (message: string): boolean =>
+                message.charAt(message.length - 1) !== "?"
+        );
 };
 
 /**
