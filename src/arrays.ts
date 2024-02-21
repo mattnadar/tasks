@@ -10,7 +10,7 @@ export function bookEndList(numbers: number[]): number[] {
         return [];
     } else {
         // length greater than 0
-        let newArr: number[] = [];
+        const newArr: number[] = [];
         newArr.push(numbers[0]);
         newArr.push(numbers[numbers.length - 1]);
         return newArr;
