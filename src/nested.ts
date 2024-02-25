@@ -85,7 +85,7 @@ export function sumPublishedPoints(questions: Question[]): number {
 /***
  * Consumes an array of questions, and produces a Comma-Separated Value (CSV) string representation.
  * A CSV is a type of file frequently used to share tabular data; we will use a single string
- * to represent the entire file. The first line of the file is the headers "id", "name", "options",
+ * to represent the entire fi2le. The first line of the file is the headers "id", "name", "options",
  * "points", and "published". The following line contains the value for each question, separated by
  * commas. For the `options` field, use the NUMBER of options.
  *
@@ -101,22 +101,13 @@ id,name,options,points,published
  */
 export function toCSV(questions: Question[]): string {
     const header = "id,name,options,points,published";
-    const arr = [header];
+    const questionsInfo = questions.map((question: Question) => {
+        let optionsCount = question.options.length;
+        return `${question.id},${question.name},${optionsCount},${question.points},${question.published}`;
+    });
+    questionsInfo.unshift(header);
+    return questionsInfo.join("\n");
 }
-/*
-export function toMarkdown(question: Question): string {
-    const name = question.name;
-    const body = question.body;
-    if (question.type === "multiple_choice_question") {
-        const options = question.options // get all the options in a string.
-            .map((option) => `- ${option}`)
-            .join("\n");
-        return `# ${name}\n${body}\n${options}`;
-    } else {
-        return `# ${name}\n${body}`;
-    }
-}
-*/
 
 /**
  * Consumes an array of Questions and produces a corresponding array of
