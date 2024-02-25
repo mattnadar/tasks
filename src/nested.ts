@@ -176,14 +176,17 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    return [...questions].map(
+        (question: Question): Question =>
+            question.id === targetId ? { ...question, name: newName } : question
+    );
 }
 
 /***
  * Consumes an array of Questions and produces a new array of Questions, where all
  * the Questions are the same EXCEPT for the one with the given `targetId`. That
  * Question should be the same EXCEPT that its `type` should now be the `newQuestionType`
- * AND if the `newQuestionType` is no longer "multiple_choice_question" than the `options`
+ * AND if the `newQuestionType` is no longer "short_answer_question" than the `options`
  * must be set to an empty list.
  */
 export function changeQuestionTypeById(
@@ -191,7 +194,19 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return [];
+    return [...questions].map(
+        (question: Question): Question =>
+            question.id === targetId
+                ? {
+                      ...question,
+                      type: newQuestionType,
+                      options:
+                          newQuestionType === "short_answer_question"
+                              ? []
+                              : question.options
+                  }
+                : question
+    );
 }
 
 /**
