@@ -103,7 +103,7 @@ id,name,options,points,published
 export function toCSV(questions: Question[]): string {
     const header = "id,name,options,points,published";
     const questionsInfo = questions.map((question: Question) => {
-        let optionsCount = question.options.length;
+        const optionsCount = question.options.length;
         return `${question.id},${question.name},${optionsCount},${question.points},${question.published}`;
     });
     questionsInfo.unshift(header);
@@ -227,7 +227,7 @@ export function editOption(
 ): Question[] {
     return [...questions].map((question: Question): Question => {
         if (question.id === targetId) {
-            let updatedArr = [...question.options];
+            const updatedArr = [...question.options];
             if (targetOptionIndex === -1) {
                 updatedArr.push(newOption);
             } else {
@@ -255,7 +255,7 @@ export function duplicateQuestionInArray(
         (question) => question.id === targetId
     );
     const newQuestion = duplicateQuestion(newId, questions[indexToDuplicate]);
-    let newArr = [...questions];
+    const newArr = [...questions];
     newArr.splice(indexToDuplicate + 1, 0, newQuestion);
     return newArr;
 }
