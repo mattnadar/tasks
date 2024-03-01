@@ -2,5 +2,15 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function RevealAnswer(): JSX.Element {
-    return <div>Reveal Answer</div>;
+    const [visible, setVisible] = useState(false);
+    const showAnswer = () => {
+        setVisible(!visible);
+    };
+
+    return (
+        <div>
+            <Button onClick={showAnswer}>Reveal Answer</Button>
+            {visible && <p>42</p>}
+        </div>
+    );
 }
