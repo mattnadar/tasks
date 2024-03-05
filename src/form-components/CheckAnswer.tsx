@@ -13,6 +13,7 @@ export function CheckAnswer({
     return (
         <div>
             <h3>Check Answer</h3>
+
             <Form.Group controlId="formCheckAnswer">
                 <Form.Label>Check Answer</Form.Label>
                 <Form.Control value={answer} onChange={updateAnswer} />
