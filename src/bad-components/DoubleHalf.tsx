@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 /*function Doubler(): JSX.Element {
-    return <Button onClick={() => setDhValue(2 * dhValue)}>Double</Button>;
+    return <Button onClick={() => setValue(2 * value)}>Double</Button>;
 }
 
 function Halver(): JSX.Element {
-    return <Button onClick={() => setDhValue(0.5 * dhValue)}>Halve</Button>;
+    return <Button onClick={() => setValue(0.5 * value)}>Halve</Button>;
 }*/
 
 export function DoubleHalf(): JSX.Element {
