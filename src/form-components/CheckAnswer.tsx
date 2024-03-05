@@ -16,7 +16,11 @@ export function CheckAnswer({
 
             <Form.Group controlId="formCheckAnswer">
                 <Form.Label>Check Answer</Form.Label>
-                <Form.Control value={answer} onChange={updateAnswer} />
+                <Form.Control
+                    style={{ width: "200px", margin: "auto" }}
+                    value={answer}
+                    onChange={updateAnswer}
+                />
             </Form.Group>
             {expectedAnswer === answer && <p>✔️</p>}
             {expectedAnswer !== answer && <p>❌</p>}

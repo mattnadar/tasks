@@ -10,6 +10,7 @@ export function GiveAttempts(): JSX.Element {
             <Form.Group controlId="formRequestAttempts">
                 <Form.Label>Request More Attemps</Form.Label>
                 <Form.Control
+                    style={{ width: "200px", margin: "auto" }}
                     type="number"
                     value={attemptsRequested}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
